@@ -22,3 +22,4 @@ void printFile(FILE *fp){
         printf("%c", c);
     }    
 }
+

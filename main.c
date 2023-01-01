@@ -2,34 +2,34 @@
 #include <stdlib.h>
 #include "leitura.h"
 
-/*
-void parameterTest(int argc){
-    if (argc != 2) {
-        printf("Uso: ./executavel <arquivo>");
-        exit(0);
-    }
-}
+struct Teams {
+    int position;
+    char Name[30];
+    int total;
+    int games;
+    int wins;
+    int goodGoals;
+    int badGoals;
+};
 
-void OpeningTest(FILE *fp, const char *path, const char *mode){
-    if (fp == NULL) {
-        printf("Falha em abrir o arquivo %s com o modo %s\n", path, mode);
-        exit(0);
+void readTeams(FILE *fp){
+    int i;
+    fscanf(fp,"%d",&i);
+    struct Teams teams[i];
+    for (int j=0; j<i; j++){
+        fscanf(fp,"%s",teams[j].Name);
     }
-}
+    for (int x=0; x<i; x++){
+        printf("%s\n",teams[x].Name);
+    }
 
-void printFile(FILE *fp){
-    char c;
-    while (fscanf(fp, "%c", &c) != EOF){
-        printf("%c", c);
-    }    
 }
-*/
 
 int main(int argc, char *argv[]){
     //parameterTest(argc);
     FILE *fp = fopen("entrada.txt", "r");
     OpeningTest(fp, argv[1], "r");
-    printFile(fp);
+    readTeams(fp);
     fclose(fp);
     return 0;
 }
